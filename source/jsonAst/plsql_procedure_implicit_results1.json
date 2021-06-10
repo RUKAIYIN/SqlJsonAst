@@ -1,0 +1,327 @@
+
+  { "head" : 
+    { "grammar" : "oracle",
+      "path" : "plsql_procedure_implicit_results1.sql",
+      "numlines" : "16" },
+    "body" : 
+    [ 
+      { "multi_line_comment" : "\/* procedure returning implicit result\n   from https:\/\/www.oracletutorial.com\/plsql-tutorial\/oracle-implicit-statement-results\/ *\/\n" },
+      
+      { "rule-path" : "sql_script unit_statement",
+        "create_procedure_body" : 
+        [ 
+          { "class" : "token",
+            "value" : "CREATE" },
+          
+          { "whitespace" : "_" },
+          
+          { "class" : "token",
+            "value" : "OR" },
+          
+          { "whitespace" : "_" },
+          
+          { "class" : "token",
+            "value" : "REPLACE" },
+          
+          { "whitespace" : "_" },
+          
+          { "class" : "token",
+            "value" : "PROCEDURE" },
+          
+          { "whitespace" : "_" },
+          
+          { "rule-path" : "procedure_name identifier id_expression",
+            "object-type" : "procedure_name",
+            "regular_id" : 
+            [ 
+              { "class" : "token",
+                "type" : "REGULAR_ID",
+                "value" : "get_customer_by_credit" } ] },
+          
+          { "class" : "token",
+            "type" : "LEFT_PAREN",
+            "value" : "(" },
+          
+          { "whitespace" : "n____" },
+          
+          { "parameter" : 
+            [ 
+              { "rule-path" : "parameter_name identifier id_expression",
+                "object-type" : "parameter_name",
+                "regular_id" : 
+                [ 
+                  { "class" : "token",
+                    "type" : "REGULAR_ID",
+                    "value" : "min_credit" } ] },
+              
+              { "whitespace" : "_" },
+              
+              { "rule-path" : "type_spec datatype",
+                "native_datatype_element" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "NUMBER" } ] } ] },
+          
+          { "whitespace" : "n" },
+          
+          { "class" : "token",
+            "type" : "RIGHT_PAREN",
+            "value" : ")" },
+          
+          { "whitespace" : "n" },
+          
+          { "class" : "token",
+            "value" : "AS" },
+          
+          { "whitespace" : "n____" },
+          
+          { "rule-path" : "seq_of_declare_specs declare_spec",
+            "variable_declaration" : 
+            [ 
+              { "rule-path" : "identifier id_expression",
+                "object-type" : "variable_declaration",
+                "regular_id" : 
+                [ 
+                  { "class" : "token",
+                    "type" : "REGULAR_ID",
+                    "value" : "c_customers" } ] },
+              
+              { "whitespace" : "_" },
+              
+              { "rule-path" : "type_spec type_name id_expression",
+                "object-type" : "type_spec",
+                "regular_id" : 
+                [ 
+                  { "class" : "token",
+                    "type" : "REGULAR_ID",
+                    "value" : "SYS_REFCURSOR" } ] },
+              
+              { "class" : "token",
+                "type" : "SEMICOLON",
+                "value" : ";" } ] },
+          
+          { "whitespace" : "n" },
+          
+          { "body" : 
+            [ 
+              { "class" : "token",
+                "value" : "BEGIN" },
+              
+              { "single_line_comment" : "-- open the cursor\n" },
+              
+              { "whitespace" : "____" },
+              
+              { "seq_of_statements" : 
+                [ 
+                  { "rule-path" : "statement sql_statement cursor_manipulation_statements",
+                    "open_for_statement" : 
+                    [ 
+                      { "class" : "token",
+                        "value" : "OPEN" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "variable_name id_expression",
+                        "object-type" : "variable_name",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "c_customers" } ] },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "FOR" },
+                      
+                      { "whitespace" : "n________" },
+                      
+                      { "rule-path" : "select_statement subquery subquery_basic_elements",
+                        "query_block" : 
+                        [ 
+                          { "selector" : 
+                            [ 
+                              { "class" : "token",
+                                "value" : "SELECT" } ] },
+                          
+                          { "whitespace" : "_" },
+                          
+                          { "rule-path" : "selected_element select_list_elements",
+                            "expressions" : 
+                            [ 
+                              { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                "object-type" : "",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "REGULAR_ID",
+                                    "value" : "customer_id" } ] },
+                              
+                              { "class" : "token",
+                                "type" : "COMMA",
+                                "value" : "," },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                "object-type" : "",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "REGULAR_ID",
+                                    "value" : "credit_limit" } ] },
+                              
+                              { "class" : "token",
+                                "type" : "COMMA",
+                                "value" : "," },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                "object-type" : "",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "NAME",
+                                    "value" : "name" } ] } ] },
+                          
+                          { "whitespace" : "n________" },
+                          
+                          { "from_clause" : 
+                            [ 
+                              { "class" : "token",
+                                "value" : "FROM" },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "table_ref_list table_ref table_ref_aux table_ref_aux_internal dml_table_expression_clause tableview_name identifier id_expression",
+                                "object-type" : "tableview_name",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "REGULAR_ID",
+                                    "value" : "customers" } ] } ] },
+                          
+                          { "whitespace" : "n________" },
+                          
+                          { "where_clause" : 
+                            [ 
+                              { "class" : "token",
+                                "value" : "WHERE" },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "expression logical_expression multiset_expression",
+                                "relational_expression" : 
+                                [ 
+                                  { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                    "object-type" : "",
+                                    "regular_id" : 
+                                    [ 
+                                      { "class" : "token",
+                                        "type" : "REGULAR_ID",
+                                        "value" : "credit_limit" } ] },
+                                  
+                                  { "whitespace" : "_" },
+                                  
+                                  { "relational_operator" : 
+                                    [ 
+                                      { "class" : "token",
+                                        "type" : "GREATER_THAN_OP",
+                                        "value" : ">" } ] },
+                                  
+                                  { "whitespace" : "_" },
+                                  
+                                  { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                    "object-type" : "",
+                                    "regular_id" : 
+                                    [ 
+                                      { "class" : "token",
+                                        "type" : "REGULAR_ID",
+                                        "value" : "min_credit" } ] } ] } ] },
+                          
+                          { "whitespace" : "n________" },
+                          
+                          { "order_by_clause" : 
+                            [ 
+                              { "class" : "token",
+                                "value" : "ORDER" },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "class" : "token",
+                                "value" : "BY" },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "order_by_elements expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                "object-type" : "",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "REGULAR_ID",
+                                    "value" : "credit_limit" } ] } ] } ] } ] },
+                  
+                  { "class" : "token",
+                    "type" : "SEMICOLON",
+                    "value" : ";" },
+                  
+                  { "single_line_comment" : "-- return the result set\n" },
+                  
+                  { "whitespace" : "____" },
+                  
+                  { "rule-path" : "statement",
+                    "function_call" : 
+                    [ 
+                      { "routine_name" : 
+                        [ 
+                          { "rule-path" : "identifier id_expression",
+                            "object-type" : "routine_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "dbms_sql" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "PERIOD",
+                            "value" : "." },
+                          
+                          { "rule-path" : "id_expression",
+                            "object-type" : "routine_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "return_result" } ] } ] },
+                      
+                      { "function_argument" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "LEFT_PAREN",
+                            "value" : "(" },
+                          
+                          { "rule-path" : "arguments argument expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                            "object-type" : "",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "c_customers" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "RIGHT_PAREN",
+                            "value" : ")" } ] } ] },
+                  
+                  { "class" : "token",
+                    "type" : "SEMICOLON",
+                    "value" : ";" } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "class" : "token",
+                "value" : "END" } ] },
+          
+          { "class" : "token",
+            "type" : "SEMICOLON",
+            "value" : ";" } ] } ] }

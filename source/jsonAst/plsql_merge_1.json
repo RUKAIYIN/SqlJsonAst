@@ -1,0 +1,372 @@
+
+  { "head" : 
+    { "grammar" : "oracle",
+      "path" : "plsql_merge_1.sql",
+      "numlines" : "10" },
+    "body" : 
+    [ 
+      { "multi_line_comment" : "\/* simple plsql merge case\n   from: https:\/\/oracle-base.com\/articles\/9i\/merge-statement *\/\n" },
+      
+      { "sql_script" : 
+        [ 
+          { "rule-path" : "unit_statement data_manipulation_language_statements",
+            "merge_statement" : 
+            [ 
+              { "merge_into" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "MERGE" },
+                  
+                  { "whitespace" : "n" },
+                  
+                  { "class" : "token",
+                    "value" : "INTO" } ] },
+              
+              { "whitespace" : "__" },
+              
+              { "merge_target" : 
+                [ 
+                  { "rule-path" : "tableview_name identifier id_expression",
+                    "object-type" : "tableview_name",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "employees" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "rule-path" : "table_alias identifier id_expression",
+                    "object-type" : "table_alias",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "e" } ] } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "class" : "token",
+                "value" : "USING" },
+              
+              { "whitespace" : "_" },
+              
+              { "selected_tableview" : 
+                [ 
+                  { "rule-path" : "tableview_name identifier id_expression",
+                    "object-type" : "tableview_name",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "hr_records" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "rule-path" : "table_alias identifier id_expression",
+                    "object-type" : "table_alias",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "h" } ] } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "class" : "token",
+                "value" : "ON" },
+              
+              { "whitespace" : "____" },
+              
+              { "class" : "token",
+                "type" : "LEFT_PAREN",
+                "value" : "(" },
+              
+              { "rule-path" : "condition expression logical_expression multiset_expression",
+                "relational_expression" : 
+                [ 
+                  { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                    "general_element_part" : 
+                    [ 
+                      { "rule-path" : "id_expression",
+                        "object-type" : "table_alias_ref",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "e" } ] },
+                      
+                      { "class" : "token",
+                        "type" : "PERIOD",
+                        "value" : "." },
+                      
+                      { "rule-path" : "id_expression",
+                        "object-type" : "column_name",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "ID",
+                            "value" : "id" } ] } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "relational_operator" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "EQUALS_OP",
+                        "value" : "=" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                    "general_element_part" : 
+                    [ 
+                      { "rule-path" : "id_expression",
+                        "object-type" : "table_alias_ref",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "h" } ] },
+                      
+                      { "class" : "token",
+                        "type" : "PERIOD",
+                        "value" : "." },
+                      
+                      { "rule-path" : "id_expression",
+                        "object-type" : "column_name",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "emp_id" } ] } ] } ] },
+              
+              { "class" : "token",
+                "type" : "RIGHT_PAREN",
+                "value" : ")" },
+              
+              { "whitespace" : "n" },
+              
+              { "merge_update_clause" : 
+                [ 
+                  { "when_matched" : 
+                    [ 
+                      { "class" : "token",
+                        "value" : "WHEN" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "MATCHED" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "THEN" },
+                      
+                      { "whitespace" : "n__" },
+                      
+                      { "class" : "token",
+                        "value" : "UPDATE" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "SET" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "merge_element" : 
+                    [ 
+                      { "column_name" : 
+                        [ 
+                          { "rule-path" : "identifier id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "e" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "PERIOD",
+                            "value" : "." },
+                          
+                          { "rule-path" : "id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "address" } ] } ] },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "type" : "EQUALS_OP",
+                        "value" : "=" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                        "general_element_part" : 
+                        [ 
+                          { "rule-path" : "id_expression",
+                            "object-type" : "table_alias_ref",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "h" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "PERIOD",
+                            "value" : "." },
+                          
+                          { "rule-path" : "id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "address" } ] } ] } ] } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "merge_insert_clause" : 
+                [ 
+                  { "when_not_matched" : 
+                    [ 
+                      { "class" : "token",
+                        "value" : "WHEN" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "NOT" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "MATCHED" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "value" : "THEN" },
+                      
+                      { "whitespace" : "n__" },
+                      
+                      { "class" : "token",
+                        "value" : "INSERT" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "paren_column_list" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "LEFT_PAREN",
+                        "value" : "(" },
+                      
+                      { "column_list" : 
+                        [ 
+                          { "rule-path" : "column_name identifier id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "ID",
+                                "value" : "id" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "COMMA",
+                            "value" : "," },
+                          
+                          { "whitespace" : "_" },
+                          
+                          { "rule-path" : "column_name identifier id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "address" } ] } ] },
+                      
+                      { "class" : "token",
+                        "type" : "RIGHT_PAREN",
+                        "value" : ")" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "class" : "token",
+                    "value" : "VALUES" },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "class" : "token",
+                    "type" : "LEFT_PAREN",
+                    "value" : "(" },
+                  
+                  { "expressions" : 
+                    [ 
+                      { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                        "general_element_part" : 
+                        [ 
+                          { "rule-path" : "id_expression",
+                            "object-type" : "table_alias_ref",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "h" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "PERIOD",
+                            "value" : "." },
+                          
+                          { "rule-path" : "id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "emp_id" } ] } ] },
+                      
+                      { "class" : "token",
+                        "type" : "COMMA",
+                        "value" : "," },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                        "general_element_part" : 
+                        [ 
+                          { "rule-path" : "id_expression",
+                            "object-type" : "table_alias_ref",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "h" } ] },
+                          
+                          { "class" : "token",
+                            "type" : "PERIOD",
+                            "value" : "." },
+                          
+                          { "rule-path" : "id_expression",
+                            "object-type" : "column_name",
+                            "regular_id" : 
+                            [ 
+                              { "class" : "token",
+                                "type" : "REGULAR_ID",
+                                "value" : "address" } ] } ] } ] },
+                  
+                  { "class" : "token",
+                    "type" : "RIGHT_PAREN",
+                    "value" : ")" } ] } ] },
+          
+          { "whitespace" : "n" },
+          
+          { "class" : "token",
+            "type" : "SEMICOLON",
+            "value" : ";" } ] } ] }

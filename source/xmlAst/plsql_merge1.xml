@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns="http://www.w3.org/2005/xpath-functions"
+     xmlns:c="http://ei.home.xs4all.nl/sql/comments"
+     xmlns:g="http://ei.home.xs4all.nl/sql/grammar"
+     xmlns:t="http://ei.home.xs4all.nl/sql/token">
+   <map key="head">
+      <string key="grammar">oracle</string>
+      <string key="path">plsql_update_1.sql</string>
+      <string key="numlines">9</string>
+   </map>
+   <array key="body">
+      <map>
+         <array key="sql_script">
+            <map>
+               <string key="whitespace">\n</string>
+            </map>
+            <map>
+               <array key="unit_statement">
+                  <map>
+                     <array key="update_statement">
+                        <map>
+                           <string key="class">token</string>
+                           <string key="value">UPDATE</string>
+                        </map>
+                        <map>
+                           <string key="whitespace">_</string>
+                        </map>
+                        <map>
+                           <array key="general_table_ref">
+                              <map>
+                                 <string key="rule-path">dml_table_expression_clause tableview_name identifier id_expression</string>
+                                 <array key="regular_id">
+                                    <map>
+                                       <string key="class">token</string>
+                                       <string key="type">REGULAR_ID</string>
+                                       <string key="value">customers</string>
+                                    </map>
+                                 </array>
+                              </map>
+                           </array>
+                        </map>
+                        <map>
+                           <string key="whitespace">\n</string>
+                        </map>
+                        <map>
+                           <array key="update_set_clause">
+                              <map>
+                                 <string key="class">token</string>
+                                 <string key="value">SET</string>
+                              </map>
+                              <map>
+                                 <string key="whitespace">____</string>
+                              </map>
+                              <map>
+                                 <array key="column_based_update_set_clause">
+                                    <map>
+                                       <array key="column_name">
+                                          <map>
+                                             <string key="rule-path">identifier id_expression</string>
+                                             <array key="regular_id">
+                                                <map>
+                                                   <string key="class">token</string>
+                                                   <string key="type">REGULAR_ID</string>
+                                                   <string key="value">c_details</string>
+                                                </map>
+                                             </array>
+                                          </map>
+                                       </array>
+                                    </map>
+                                    <map>
+                                       <string key="class">token</string>
+                                       <string key="type">EQUALS_OP</string>
+                                       <string key="value">=</string>
+                                    </map>
+                                    <map>
+                                       <string key="whitespace">_</string>
+                                    </map>
+                                    <map>
+                                       <array key="expression">
+                                          <map>
+                                             <string key="rule-path">logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression</string>
+                                             <array key="atom">
+                                                <map>
+                                                   <string key="class">token</string>
+                                                   <string key="type">LEFT_PAREN</string>
+                                                   <string key="value">(</string>
+                                                </map>
+                                                <map>
+                                                   <string key="whitespace">\n___</string>
+                                                </map>
+                                                <map>
+                                                   <array key="subquery">
+                                                      <map>
+                                                         <array key="query_block">
+                                                            <map>
+                                                               <array key="selector">
+                                                                  <map>
+                                                                     <string key="class">token</string>
+                                                                     <string key="value">SELECT</string>
+                                                                  </map>
+                                                               </array>
+                                                            </map>
+                                                            <map>
+                                                               <string key="whitespace">_</string>
+                                                            </map>
+                                                            <map>
+                                                               <array key="selected_element">
+                                                                  <map>
+                                                                     <string key="rule-path">select_list_elements expressions expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression</string>
+                                                                     <array key="regular_id">
+                                                                        <map>
+                                                                           <string key="class">token</string>
+                                                                           <string key="type">REGULAR_ID</string>
+                                                                           <string key="value">contract_date</string>
+                                                                        </map>
+                                                                     </array>
+                                                                  </map>
+                                                               </array>
+                                                            </map>
+                                                            <map>
+                                                               <string key="whitespace">\n___</string>
+                                                            </map>
+                                                            <map>
+                                                               <array key="from_clause">
+                                                                  <map>
+                                                                     <string key="class">token</string>
+                                                                     <string key="value">FROM</string>
+                                                                  </map>
+                                                                  <map>
+                                                                     <string key="whitespace">___</string>
+                                                                  </map>
+                                                                  <map>
+                                                                     <array key="table_ref_list">
+                                                                        <map>
+                                                                           <string key="rule-path">table_ref table_ref_aux table_ref_aux_internal dml_table_expression_clause tableview_name identifier id_expression</string>
+                                                                           <array key="regular_id">
+                                                                              <map>
+                                                                                 <string key="class">token</string>
+                                                                                 <string key="type">REGULAR_ID</string>
+                                                                                 <string key="value">suppliers</string>
+                                                                              </map>
+                                                                           </array>
+                                                                        </map>
+                                                                     </array>
+                                                                  </map>
+                                                               </array>
+                                                            </map>
+                                                            <map>
+                                                               <string key="whitespace">\n___</string>
+                                                            </map>
+                                                            <map>
+                                                               <array key="where_clause">
+                                                                  <map>
+                                                                     <string key="class">token</string>
+                                                                     <string key="value">WHERE</string>
+                                                                  </map>
+                                                                  <map>
+                                                                     <string key="whitespace">__</string>
+                                                                  </map>
+                                                                  <map>
+                                                                     <array key="expression">
+                                                                        <map>
+                                                                           <string key="rule-path">logical_expression multiset_expression</string>
+                                                                           <array key="relational_expression">
+                                                                              <map>
+                                                                                 <array key="relational_expression">
+                                                                                    <map>
+                                                                                       <string key="rule-path">compound_expression concatenation model_expression unary_expression atom general_element</string>
+                                                                                       <array key="general_element_part">
+                                                                                          <map>
+                                                                                             <array key="id_expression">
+                                                                                                <map>
+                                                                                                   <array key="regular_id">
+                                                                                                      <map>
+                                                                                                         <string key="class">token</string>
+                                                                                                         <string key="type">REGULAR_ID</string>
+                                                                                                         <string key="value">suppliers</string>
+                                                                                                      </map>
+                                                                                                   </array>
+                                                                                                </map>
+                                                                                             </array>
+                                                                                          </map>
+                                                                                          <map>
+                                                                                             <string key="class">token</string>
+                                                                                             <string key="type">PERIOD</string>
+                                                                                             <string key="value">.</string>
+                                                                                          </map>
+                                                                                          <map>
+                                                                                             <array key="id_expression">
+                                                                                                <map>
+                                                                                                   <array key="regular_id">
+                                                                                                      <map>
+                                                                                                         <string key="class">token</string>
+                                                                                                         <string key="type">REGULAR_ID</string>
+                                                                                                         <string key="value">supplier_name</string>
+                                                                                                      </map>
+                                                                                                   </array>
+                                                                                                </map>
+                                                                                             </array>
+                                                                                          </map>
+                                                                                       </array>
+                                                                                    </map>
+                                                                                 </array>
+                                                                              </map>
+                                                                              <map>
+                                                                                 <string key="whitespace">_</string>
+                                                                              </map>
+                                                                              <map>
+                                                                                 <array key="relational_operator">
+                                                                                    <map>
+                                                                                       <string key="class">token</string>
+                                                                                       <string key="type">EQUALS_OP</string>
+                                                                                       <string key="value">=</string>
+                                                                                    </map>
+                                                                                 </array>
+                                                                              </map>
+                                                                              <map>
+                                                                                 <string key="whitespace">_</string>
+                                                                              </map>
+                                                                              <map>
+                                                                                 <array key="relational_expression">
+                                                                                    <map>
+                                                                                       <string key="rule-path">compound_expression concatenation model_expression unary_expression atom general_element</string>
+                                                                                       <array key="general_element_part">
+                                                                                          <map>
+                                                                                             <array key="id_expression">
+                                                                                                <map>
+                                                                                                   <array key="regular_id">
+                                                                                                      <map>
+                                                                                                         <string key="class">token</string>
+                                                                                                         <string key="type">REGULAR_ID</string>
+                                                                                                         <string key="value">customers</string>
+                                                                                                      </map>
+                                                                                                   </array>
+                                                                                                </map>
+                                                                                             </array>
+                                                                                          </map>
+                                                                                          <map>
+                                                                                             <string key="class">token</string>
+                                                                                             <string key="type">PERIOD</string>
+                                                                                             <string key="value">.</string>
+                                                                                          </map>
+                                                                                          <map>
+                                                                                             <array key="id_expression">
+                                                                                                <map>
+                                                                                                   <array key="regular_id">
+                                                                                                      <map>
+                                                                                                         <string key="class">token</string>
+                                                                                                         <string key="type">REGULAR_ID</string>
+                                                                                                         <string key="value">customer_name</string>
+                                                                                                      </map>
+                                                                                                   </array>
+                                                                                                </map>
+                                                                                             </array>
+                                                                                          </map>
+                                                                                       </array>
+                                                                                    </map>
+                                                                                 </array>
+                                                                              </map>
+                                                                           </array>
+                                                                        </map>
+                                                                     </array>
+                                                                  </map>
+                                                               </array>
+                                                            </map>
+                                                         </array>
+                                                      </map>
+                                                   </array>
+                                                </map>
+                                                <map>
+                                                   <string key="class">token</string>
+                                                   <string key="type">RIGHT_PAREN</string>
+                                                   <string key="value">)</string>
+                                                </map>
+                                             </array>
+                                          </map>
+                                       </array>
+                                    </map>
+                                 </array>
+                              </map>
+                           </array>
+                        </map>
+                        <map>
+                           <string key="whitespace">\n</string>
+                        </map>
+                        <map>
+                           <array key="where_clause">
+                              <map>
+                                 <string key="class">token</string>
+                                 <string key="value">WHERE</string>
+                              </map>
+                              <map>
+                                 <string key="whitespace">__</string>
+                              </map>
+                              <map>
+                                 <array key="expression">
+                                    <map>
+                                       <string key="rule-path">logical_expression multiset_expression</string>
+                                       <array key="relational_expression">
+                                          <map>
+                                             <array key="relational_expression">
+                                                <map>
+                                                   <string key="rule-path">compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression</string>
+                                                   <array key="regular_id">
+                                                      <map>
+                                                         <string key="class">token</string>
+                                                         <string key="type">REGULAR_ID</string>
+                                                         <string key="value">customer_id</string>
+                                                      </map>
+                                                   </array>
+                                                </map>
+                                             </array>
+                                          </map>
+                                          <map>
+                                             <string key="whitespace">_</string>
+                                          </map>
+                                          <map>
+                                             <array key="relational_operator">
+                                                <map>
+                                                   <string key="class">token</string>
+                                                   <string key="type">LESS_THAN_OP</string>
+                                                   <string key="value">&lt;</string>
+                                                </map>
+                                             </array>
+                                          </map>
+                                          <map>
+                                             <string key="whitespace">_</string>
+                                          </map>
+                                          <map>
+                                             <array key="relational_expression">
+                                                <map>
+                                                   <string key="rule-path">compound_expression concatenation model_expression unary_expression atom constant</string>
+                                                   <array key="numeric">
+                                                      <map>
+                                                         <string key="class">token</string>
+                                                         <string key="type">UNSIGNED_INTEGER</string>
+                                                         <string key="value">1000</string>
+                                                      </map>
+                                                   </array>
+                                                </map>
+                                             </array>
+                                          </map>
+                                       </array>
+                                    </map>
+                                 </array>
+                              </map>
+                           </array>
+                        </map>
+                     </array>
+                  </map>
+               </array>
+            </map>
+            <map>
+               <string key="class">token</string>
+               <string key="type">SEMICOLON</string>
+               <string key="value">;</string>
+            </map>
+         </array>
+      </map>
+   </array>
+</map>

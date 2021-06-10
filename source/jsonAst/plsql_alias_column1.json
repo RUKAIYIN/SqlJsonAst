@@ -1,0 +1,101 @@
+
+  { "head" : 
+    { "grammar" : "oracle",
+      "path" : "plsql_alias_column1.sql",
+      "numlines" : "6" },
+    "body" : 
+    [ 
+      { "multi_line_comment" : "\/* simple column alias 1\n   from: https:\/\/www.oracletutorial.com\/oracle-basics\/oracle-alias\/ *\/\n" },
+      
+      { "sql_script" : 
+        [ 
+          { "rule-path" : "unit_statement data_manipulation_language_statements select_statement subquery subquery_basic_elements",
+            "query_block" : 
+            [ 
+              { "selector" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "SELECT" } ] },
+              
+              { "whitespace" : "n__" },
+              
+              { "selected_element" : 
+                [ 
+                  { "rule-path" : "select_list_elements expressions expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                    "object-type" : "column_name",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "first_name" } ] },
+                  
+                  { "whitespace" : "_" },
+                  
+                  { "column_alias" : 
+                    [ 
+                      { "class" : "token",
+                        "value" : "AS" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "identifier id_expression",
+                        "object-type" : "column_alias",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "forename" } ] } ] } ] },
+              
+              { "class" : "token",
+                "type" : "COMMA",
+                "value" : "," },
+              
+              { "whitespace" : "n__" },
+              
+              { "selected_element" : 
+                [ 
+                  { "rule-path" : "select_list_elements expressions expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                    "object-type" : "column_name",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "last_name" } ] },
+                  
+                  { "whitespace" : "__" },
+                  
+                  { "column_alias" : 
+                    [ 
+                      { "class" : "token",
+                        "value" : "AS" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "identifier id_expression",
+                        "object-type" : "column_alias",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "surname" } ] } ] } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "from_clause" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "FROM" },
+                  
+                  { "whitespace" : "n__" },
+                  
+                  { "rule-path" : "table_ref_list table_ref table_ref_aux table_ref_aux_internal dml_table_expression_clause tableview_name identifier id_expression",
+                    "object-type" : "tableview_name",
+                    "regular_id" : 
+                    [ 
+                      { "class" : "token",
+                        "type" : "REGULAR_ID",
+                        "value" : "employees" } ] } ] } ] },
+          
+          { "class" : "token",
+            "type" : "SEMICOLON",
+            "value" : ";" } ] } ] }

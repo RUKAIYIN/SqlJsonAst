@@ -1,0 +1,216 @@
+
+  { "head" : 
+    { "grammar" : "oracle",
+      "path" : "plsql_update_1.sql",
+      "numlines" : "9" },
+    "body" : 
+    [ 
+      { "multi_line_comment" : "\/* simple plsql update\/select case *\/\n" },
+      
+      { "sql_script" : 
+        [ 
+          { "rule-path" : "unit_statement data_manipulation_language_statements",
+            "update_statement" : 
+            [ 
+              { "class" : "token",
+                "value" : "UPDATE" },
+              
+              { "whitespace" : "_" },
+              
+              { "rule-path" : "general_table_ref dml_table_expression_clause tableview_name identifier id_expression",
+                "object-type" : "tableview_name",
+                "regular_id" : 
+                [ 
+                  { "class" : "token",
+                    "type" : "REGULAR_ID",
+                    "value" : "customers" } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "update_set_clause" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "SET" },
+                  
+                  { "whitespace" : "____" },
+                  
+                  { "column_based_update_set_clause" : 
+                    [ 
+                      { "rule-path" : "column_name identifier id_expression",
+                        "object-type" : "column_name",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "c_details" } ] },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "class" : "token",
+                        "type" : "EQUALS_OP",
+                        "value" : "=" },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression",
+                        "atom" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "LEFT_PAREN",
+                            "value" : "(" },
+                          
+                          { "whitespace" : "n___" },
+                          
+                          { "rule-path" : "subquery subquery_basic_elements",
+                            "query_block" : 
+                            [ 
+                              { "selector" : 
+                                [ 
+                                  { "class" : "token",
+                                    "value" : "SELECT" } ] },
+                              
+                              { "whitespace" : "_" },
+                              
+                              { "rule-path" : "selected_element select_list_elements expressions expression logical_expression multiset_expression relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                                "object-type" : "column_name",
+                                "regular_id" : 
+                                [ 
+                                  { "class" : "token",
+                                    "type" : "REGULAR_ID",
+                                    "value" : "contract_date" } ] },
+                              
+                              { "whitespace" : "n___" },
+                              
+                              { "from_clause" : 
+                                [ 
+                                  { "class" : "token",
+                                    "value" : "FROM" },
+                                  
+                                  { "whitespace" : "___" },
+                                  
+                                  { "rule-path" : "table_ref_list table_ref table_ref_aux table_ref_aux_internal dml_table_expression_clause tableview_name identifier id_expression",
+                                    "object-type" : "tableview_name",
+                                    "regular_id" : 
+                                    [ 
+                                      { "class" : "token",
+                                        "type" : "REGULAR_ID",
+                                        "value" : "suppliers" } ] } ] },
+                              
+                              { "whitespace" : "n___" },
+                              
+                              { "where_clause" : 
+                                [ 
+                                  { "class" : "token",
+                                    "value" : "WHERE" },
+                                  
+                                  { "whitespace" : "__" },
+                                  
+                                  { "rule-path" : "expression logical_expression multiset_expression",
+                                    "relational_expression" : 
+                                    [ 
+                                      { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                                        "general_element_part" : 
+                                        [ 
+                                          { "rule-path" : "id_expression",
+                                            "object-type" : "table_alias_ref",
+                                            "regular_id" : 
+                                            [ 
+                                              { "class" : "token",
+                                                "type" : "REGULAR_ID",
+                                                "value" : "suppliers" } ] },
+                                          
+                                          { "class" : "token",
+                                            "type" : "PERIOD",
+                                            "value" : "." },
+                                          
+                                          { "rule-path" : "id_expression",
+                                            "object-type" : "column_name",
+                                            "regular_id" : 
+                                            [ 
+                                              { "class" : "token",
+                                                "type" : "REGULAR_ID",
+                                                "value" : "supplier_name" } ] } ] },
+                                      
+                                      { "whitespace" : "_" },
+                                      
+                                      { "relational_operator" : 
+                                        [ 
+                                          { "class" : "token",
+                                            "type" : "EQUALS_OP",
+                                            "value" : "=" } ] },
+                                      
+                                      { "whitespace" : "_" },
+                                      
+                                      { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element",
+                                        "general_element_part" : 
+                                        [ 
+                                          { "rule-path" : "id_expression",
+                                            "object-type" : "table_alias_ref",
+                                            "regular_id" : 
+                                            [ 
+                                              { "class" : "token",
+                                                "type" : "REGULAR_ID",
+                                                "value" : "customers" } ] },
+                                          
+                                          { "class" : "token",
+                                            "type" : "PERIOD",
+                                            "value" : "." },
+                                          
+                                          { "rule-path" : "id_expression",
+                                            "object-type" : "column_name",
+                                            "regular_id" : 
+                                            [ 
+                                              { "class" : "token",
+                                                "type" : "REGULAR_ID",
+                                                "value" : "customer_name" } ] } ] } ] } ] } ] },
+                          
+                          { "whitespace" : "n" },
+                          
+                          { "class" : "token",
+                            "type" : "RIGHT_PAREN",
+                            "value" : ")" } ] } ] } ] },
+              
+              { "whitespace" : "n" },
+              
+              { "where_clause" : 
+                [ 
+                  { "class" : "token",
+                    "value" : "WHERE" },
+                  
+                  { "whitespace" : "__" },
+                  
+                  { "rule-path" : "expression logical_expression multiset_expression",
+                    "relational_expression" : 
+                    [ 
+                      { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom general_element general_element_part id_expression",
+                        "object-type" : "column_name",
+                        "regular_id" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "REGULAR_ID",
+                            "value" : "customer_id" } ] },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "relational_operator" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "LESS_THAN_OP",
+                            "value" : "<" } ] },
+                      
+                      { "whitespace" : "_" },
+                      
+                      { "rule-path" : "relational_expression compound_expression concatenation model_expression unary_expression atom constant",
+                        "numeric" : 
+                        [ 
+                          { "class" : "token",
+                            "type" : "UNSIGNED_INTEGER",
+                            "value" : "1000" } ] } ] } ] } ] },
+          
+          { "whitespace" : "n" },
+          
+          { "class" : "token",
+            "type" : "SEMICOLON",
+            "value" : ";" },
+          
+          { "whitespace" : "n" } ] } ] }
