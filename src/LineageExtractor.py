@@ -14,24 +14,30 @@ def main(argv):
 
         # match insert
         ast_insert = {}
-        match_insert(ast, 'insert_statement', ast_insert)
+        dfs_field(ast, 'insert_statement', ast_insert)
 
         # match target lineage
         ast_target = {}
-        match_insert(ast_insert, 'insert_into_clause', ast_target)
+        dfs_field(ast_insert, 'insert_into_clause', ast_target)
         tgt_tbl, tgt_col = extract_target(ast_target)
 
         # match source lineage
         ast_source = {}
-        dfs_insert(ast_insert, 'rule-path', 'select_statement', ast_source, 'source')
+        dfs_field_value(ast_insert, 'rule-path', 'select_statement', ast_source, 'source')
         src_tbl, src_col = extract_source(ast_source)
 
         # TODO: wrap lineage info into a nice table
         print_lineage(src_tbl, src_col, tgt_tbl, tgt_col)
 
 
-# looking for a specific field_name
-def match_insert(ast, field_name, result):
+def dfs_field(ast, field_name, result):
+    """
+    looking for a specific field_name in the input json
+    :param ast:
+    :param field_name:
+    :param result:
+    :return: json whose only field is field_name saved in 'result'
+    """
     # base
     if field_name in result:
         return
@@ -42,14 +48,22 @@ def match_insert(ast, field_name, result):
             return
         else:
             for key in ast.keys():
-                match_insert(ast[key], field_name, result)
+                dfs_field(ast[key], field_name, result)
     elif type(ast) == list:
         for item in ast:
-            match_insert(item, field_name, result)
+            dfs_field(item, field_name, result)
 
 
-# looking for a specific field_name whose value is field_value
-def dfs_insert(ast, field_name, field_value, result, rst_field_name):
+def dfs_field_value(ast, field_name, field_value, result, rst_field_name):
+    """
+    looking for a specific field_name whose value is field_value in the input json
+    :param ast:
+    :param field_name:
+    :param field_value:
+    :param result:
+    :param rst_field_name:
+    :return: json whole only field is rst_field_name saved in 'result'
+    """
     # base
     if rst_field_name in result:
         return
@@ -60,10 +74,10 @@ def dfs_insert(ast, field_name, field_value, result, rst_field_name):
             return
         else:
             for key in ast.keys():
-                dfs_insert(ast[key], field_name, field_value, result, rst_field_name)
+                dfs_field_value(ast[key], field_name, field_value, result, rst_field_name)
     elif type(ast) == list:
         for item in ast:
-            dfs_insert(item, field_name, field_value, result, rst_field_name)
+            dfs_field_value(item, field_name, field_value, result, rst_field_name)
 
 
 # extract target lineage
@@ -71,13 +85,13 @@ def extract_target(ast):
     # get (single) target table
     lineage_target_tbl = {}
     tbl_field_val = 'general_table_ref'
-    dfs_insert(ast, 'rule-path', tbl_field_val, lineage_target_tbl, 'source')
+    dfs_field_value(ast, 'rule-path', tbl_field_val, lineage_target_tbl, 'source')
     tgt_tbl = lineage_target_tbl['source']['regular_id'][0]['value']
 
     # get target columns
     raw_target_col = {}
     col_field_name = 'column_list'
-    match_insert(ast, col_field_name, raw_target_col)
+    dfs_field(ast, col_field_name, raw_target_col)
 
     lineage_target_col = []
     if col_field_name in raw_target_col:
@@ -92,12 +106,12 @@ def extract_target(ast):
 def extract_source(ast):
     # get source tables
     raw_source_tbl = {}
-    match_insert(ast, 'from_clause', raw_source_tbl)
+    dfs_field(ast, 'from_clause', raw_source_tbl)
     src_tbl = get_source_tbl(raw_source_tbl['from_clause'])
 
     # get source columns
     raw_source_col = {}
-    dfs_insert(ast, 'rule-path', 'selected_element', raw_source_col, 'source')
+    dfs_field_value(ast, 'rule-path', 'selected_element', raw_source_col, 'source')
     src_col = get_source_col(raw_source_col['source'])
     return src_tbl, src_col
 
