@@ -2,7 +2,7 @@ import json
 import sys
 
 from LineageExtractor import dfs_field, dfs_field_value
-from util.LineagePrinter import print_lineage
+from util.util import print_lineage
 
 
 def main(argv):
