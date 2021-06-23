@@ -119,7 +119,13 @@ def get_src_col_alias(ast, table_aliases):
                 elif item['object-type'] == 'column_name':
                     src_col.append(val)
 
-    lineage_source[src_tbl] = src_col
+    if src_tbl in lineage_source:
+        for col in src_col:
+            # maybe change it to a set?
+            if col not in lineage_source[src_tbl]:
+                lineage_source[src_tbl].append(col)
+    else:
+        lineage_source[src_tbl] = src_col
 
 
 def extract_source_single_table(ast):
