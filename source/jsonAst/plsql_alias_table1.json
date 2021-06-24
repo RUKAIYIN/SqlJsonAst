@@ -79,7 +79,7 @@
                         [ 
                           { "class" : "token",
                             "type" : "REGULAR_ID",
-                            "value" : "last_name" } ] } ] },
+                            "value" : "first_name" } ] } ] },
                   
                   { "whitespace" : "_" },
                   

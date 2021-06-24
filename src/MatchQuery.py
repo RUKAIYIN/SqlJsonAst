@@ -8,6 +8,7 @@ from util.util import print_lineage, print_lineage_in_json, merge_json
 # global variables
 
 # result lineage info
+# for query, there is no target lineage
 lineage_source = {}
 
 
@@ -19,9 +20,6 @@ def main(argv):
             with open(os.path.join(path, file)) as f:
                 ast = json.load(f)
                 match_query(ast)
-    # with open(os.path.join(path, 'plsql_alias_table1.json')) as f:
-    #     ast = json.load(f)
-    #     match_query(ast)
 
 
 def match_query(ast):
