@@ -13,7 +13,7 @@ lineage_source = {}
 
 
 def main(argv):
-    path = '../source/jsonAst/query'
+    path = '../resource/jsonAst/query'
     for file in os.listdir(path):
         if 'json' in file:
             print('\nProcessing ' + str(file))

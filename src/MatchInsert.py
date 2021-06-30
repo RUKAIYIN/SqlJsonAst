@@ -1,34 +1,33 @@
 import json
 import sys
+import os
 
 from LineageExtractor import dfs_field, dfs_field_value
 from util.util import print_lineage
 
 
 def main(argv):
-    for file in argv:
-        # Open JSON ast
-        with open(file) as f:
-            ast = json.load(f)
+    path = '../resource/jsonAst/insert'
+    for file in os.listdir(path):
+        if 'json' in file:
+            print('\nProcessing ' + str(file))
+            with open(os.path.join(path, file)) as f:
+                ast = json.load(f)
+                # match insert
+                ast_insert = {}
+                dfs_field(ast, 'insert_statement', ast_insert)
 
-        print('\nparsing: ' + str(file) + '\n')
+                # match target lineage
+                ast_target = {}
+                dfs_field(ast_insert, 'insert_into_clause', ast_target)
+                tgt_tbl, tgt_col = extract_target(ast_target)
 
-        # match insert
-        ast_insert = {}
-        dfs_field(ast, 'insert_statement', ast_insert)
+                # match source lineage
+                ast_source = {}
+                dfs_field_value(ast_insert, 'rule-path', 'select_statement', ast_source, 'source')
+                src_tbl, src_col = extract_source(ast_source)
 
-        # match target lineage
-        ast_target = {}
-        dfs_field(ast_insert, 'insert_into_clause', ast_target)
-        tgt_tbl, tgt_col = extract_target(ast_target)
-
-        # match source lineage
-        ast_source = {}
-        dfs_field_value(ast_insert, 'rule-path', 'select_statement', ast_source, 'source')
-        src_tbl, src_col = extract_source(ast_source)
-
-        # TODO: wrap lineage info into a nice table
-        print_lineage(src_tbl, src_col, tgt_tbl, tgt_col)
+                print_lineage(src_tbl, src_col, tgt_tbl, tgt_col)
 
 
 # extract target lineage

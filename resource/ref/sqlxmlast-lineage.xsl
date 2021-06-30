@@ -84,7 +84,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <!-- output lineage, target and source-->
+        <!-- output lineage, target and resource-->
         <insert target-table="{$target-table}">
             <xsl:variable name="s" select="$used-col-def/l:columns/l:column" as="node()*"/>
             <xsl:variable name="t" select="$source/l:expressions/l:*" as="node()*"/>
