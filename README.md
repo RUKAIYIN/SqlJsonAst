@@ -10,6 +10,8 @@ In `/src` you will find the source code for the parser.
 
 In `/resource/jsonAst` you will find the JSON ASTs used as inputs.
 
+All jupyter Notebook files `*.ipynb` contain the preliminary experiments.
+
 ## Run
 You can run the Python script separately to see how it works for different SQL statement.
 
